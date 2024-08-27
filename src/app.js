@@ -2,6 +2,8 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import products from './models/testmodel.js';
+import bodyParser from 'body-parser';
+import testUserRoutes from './routes/testuser.js';
 dotenv.config();
 
 
@@ -26,6 +28,37 @@ app.get('/', (req, res) => {
 app.get('/products', (req, res) => {
     res.json(products);
 });
+
+app.use('/api/test-users', testUserRoutes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
