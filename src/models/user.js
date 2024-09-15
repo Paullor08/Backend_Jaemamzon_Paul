@@ -10,19 +10,19 @@ const UserSchema = new Schema({
         unique: true,
     },
 
-    Email: {
+    email: {
         type: String,
         required: true,
         unique: true,
     },
 
-    Password: {
+    password: {
         type: String,
         required: true,
         unique: true,
     },
 
-    IsAdmin: {
+    isAdmin: {
         type: Boolean,
         default: false,
     }

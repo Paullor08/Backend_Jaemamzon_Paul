@@ -1,9 +1,9 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import products from './models/testmodel.js';
 import bodyParser from 'body-parser';
-import testUserRoutes from './routes/testuser.js';
+import products from './models/testmodel.js';
+import authRoutes from './routes/authRoutes.js';
 dotenv.config();
 
 
@@ -21,15 +21,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
-
-app.get('/products', (req, res) => {
-    res.json(products);
-});
-
-app.use('/api/test-users', testUserRoutes);
+app.use('/api/auth',authRoutes);
 
 
 
@@ -43,26 +35,7 @@ app.use('/api/test-users', testUserRoutes);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
