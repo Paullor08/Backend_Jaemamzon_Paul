@@ -4,11 +4,12 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import products from './models/testmodel.js';
 import authRoutes from './routes/authRoutes.js';
+import cors from 'cors';
 dotenv.config();
 
 
 const app = express();
-
+app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
